@@ -13,4 +13,6 @@ How to undo git: rm -rf .git/
  npx mikro-orm migration:create
  yarn watch
  yarn dev
+
+  2_Graphql_Schema
 */
