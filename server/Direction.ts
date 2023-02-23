@@ -14,5 +14,6 @@ How to undo git: rm -rf .git/
  yarn watch
  yarn dev
 
-  2_Graphql_Schema
+  5_Create_a_Post
+  added "as RequiredEntityData<Post>"on const post = em.create(Post, {title} as RequiredEntityData<Post>
 */
