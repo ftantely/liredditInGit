@@ -16,4 +16,11 @@ How to undo git: rm -rf .git/
 
   5_Create_a_Post
   added "as RequiredEntityData<Post>"on const post = em.create(Post, {title} as RequiredEntityData<Post>
+  8_Create_User_Entity
+  No other user can have the same username of a user(It's unique)
+  @Field()
+  @Property({ type: "text", unique: true })
+  username!: string;
+
+
 */
