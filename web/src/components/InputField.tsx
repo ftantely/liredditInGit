@@ -24,6 +24,11 @@ export const InputField: React.FC<InputFieldProps> = ({
   name: string;
 }) => {
   const [field, { error }] = useField(props);
+  /*
+  https://formik.org/docs/api/field#fieldinputprops
+  field: An object containing onChange, onBlur, name,
+  and value of the field (see FieldInputProps)
+   */
   return (
     <FormControl isInvalid={!!error}>
       <FormLabel htmlFor={field.name}>{label}</FormLabel>
