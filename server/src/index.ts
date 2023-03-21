@@ -50,7 +50,16 @@ const main = async () => {
   });
   // console.log(apolloServer.);
   await apolloServer.start();
-  apolloServer.applyMiddleware({ app });
+  apolloServer.applyMiddleware({ app ,
+      /*
+      Error Access to fetch at 'http://localhost:4000/graphql'
+       from origin 'http://localhost:3000' has been blocked by CORS policy:
+       Response to preflight request doesn't pass access control check:
+        The value of the 'Access-Control-Allow-Origin' header in the response
+         must not be the wildcard '*' when the request's credentials mode is 'include'.
+      Cors defaults to * so it needs to be replaced with http://localhost:3000
+       */
+  cors:{origin:"http://localhost:3000"}});
   app.listen(4000, () => {
     console.log("server started on localhost:4000");
   });
