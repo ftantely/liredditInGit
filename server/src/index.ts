@@ -11,6 +11,7 @@ import redis from "redis";
 import session from "express-session";
 import connectRedis from "connect-redis";
 import { __prod__ } from "./constants";
+import cors from 'cors'
 
 const main = async () => {
   const orm = await MikroORM.init(microConfig);
@@ -21,6 +22,10 @@ const main = async () => {
 
   const RedisStore = connectRedis(session);
   const redisClient = redis.createClient();
+  app.use(
+      cors({origin:"http://localhost:3000",
+      credentials:true})
+  )
 
   app.use(
     session({
@@ -51,15 +56,7 @@ const main = async () => {
   // console.log(apolloServer.);
   await apolloServer.start();
   apolloServer.applyMiddleware({ app ,
-      /*
-      Error Access to fetch at 'http://localhost:4000/graphql'
-       from origin 'http://localhost:3000' has been blocked by CORS policy:
-       Response to preflight request doesn't pass access control check:
-        The value of the 'Access-Control-Allow-Origin' header in the response
-         must not be the wildcard '*' when the request's credentials mode is 'include'.
-      Cors defaults to * so it needs to be replaced with http://localhost:3000
-       */
-  cors:{origin:"http://localhost:3000"}});
+  cors:false});
   app.listen(4000, () => {
     console.log("server started on localhost:4000");
   });
