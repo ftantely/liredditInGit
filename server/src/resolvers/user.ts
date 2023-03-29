@@ -10,7 +10,6 @@ import {
 } from "type-graphql";
 import { MyContext } from "../types";
 import { User } from "../entities/User";
-import { RequiredEntityData } from "@mikro-orm/core";
 import argon2 from "argon2";
 import { EntityManager } from "@mikro-orm/postgresql";
 
