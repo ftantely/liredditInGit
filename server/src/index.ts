@@ -7,12 +7,14 @@ import { buildSchema } from "type-graphql";
 import { HelloResolver } from "./resolvers/hello";
 import { PostResolver } from "./resolvers/post";
 import { UserResolver } from "./resolvers/user";
-import Redis from "ioredis";
+// import Redis from "ioredis";
 import session from "express-session";
 import connectRedis from "connect-redis";
 import { __prod__, COOKIE_NAME } from "./constants";
 import cors from "cors";
 // import { User } from "./entities/User";
+
+const Redis = require("ioredis");
 
 const main = async () => {
   const orm = await MikroORM.init(microConfig);
